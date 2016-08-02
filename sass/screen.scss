@@ -11,11 +11,25 @@ $browser-minimum-versions:("ie":"7");
 html{
 	@include box-sizing(border-box);
 }
-h3{
+h1{
 	@include adjust-font-size-to(20px);
+}
+h2{
+	@include adjust-font-size-to(18px);
+}
+h3{
+	@include adjust-font-size-to(16px);
+}
+
+h4{
+	@include adjust-font-size-to(14px);
 }
 a{
 	@include hover-link;
+}
+h1,h2,h3,h4{
+	// margin:20px 0 10px 0;
+	font-weight:bold;
 }
 $inner-size:960px;
 $color:#fff;
@@ -40,8 +54,9 @@ body{
 	border-bottom:1px solid #5d5d5d;
 	line-height:50px;
 	color:$color;
-	h3{
-		@include inline-block;
+	h1{
+		@extend h1;
+ 		@include inline-block;
 		height:$title-h;
 		line-height:$title-h;
 		margin-left:162px;
@@ -49,7 +64,6 @@ body{
 	}
 	span{
 		@extend h3;
-		@include adjust-font-size-to(16px);
 		line-height: $title-h;
 		margin-left:60px;
 	}
@@ -81,7 +95,7 @@ form{
 		}
 		input[type="button"]{
 			width:$btn-width;
-			@include adjust-font-size-to(14px);
+			@extend h4;
 			@include box-shadow;
 			position:absolute;
 			left:355px;
@@ -102,14 +116,56 @@ form{
 		display:none;
 	}
 	.index{
-		color:$color;
 		input[type="checkbox"]{
 			width:auto;
 			color:$color;
 			margin-right:10px;
 		}
-		.but1{
-			color:#23527c;
+		a{
+			color:#337ab7;
+			cursor:pointer;
+			&:hover{
+				color:#23527c;
+			}
+		}
+		.box1{
+			@include border-radius(5px);
+			position:fixed;
+			left:25%;
+			width:50%;
+			height:500px;
+			border:1px solid #ccc;
+			padding:0px 15px;
+			overflow:auto;
+			background:$color;
+			top:50px;
+			h1{
+				margin:20px 0 10px 0;
+				text-align: center;
+				span{
+					@extend h2;
+				}
+			}
+			h2{
+				margin:20px 0 10px 0;
+				line-height:45px;
+			}
+			p{
+				line-height:26px;
+			}
+			
+			i{
+				cursor:pointer;
+				@extend h1;
+				position:fixed;
+				@include inline-block;
+				margin-left:15%;
+				margin-top:0;
+				font-size:30px;
+			}
+			h3{
+				@extend h3;
+			}
 		}
 	}
 	.btn_nav{

@@ -8,7 +8,7 @@
 <body>
 	<div class="bg">
 		<div class="register-title">
-			<h3>快速注册</h3>
+			<h1>快速注册</h1>
 			<span>欢迎您注册天天旅交会会员，如果您已拥有账户，则可在此</span>
 			<a href="/login">登录</a>
 		</div>
@@ -16,37 +16,37 @@
 			<form class="myform" id="myform" action="register" method="post">
 				<div class="form-group has-error required">
 					<span>手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机:</span>
-					<input type="text" name="mobile" id="mobile" placeholder="请输入手机号" value="">
+					<input type="text" name="mobile" id="mobile" placeholder="请输入手机号" onblur="checkPhone(this.value)" value="">
 					<label class="error">*</label>
-					<span class="help-block">请输入正确的手机号码</span>
+					<span id="phone" class="help-block">请输入正确的手机号码</span>
 				</div>
 				<div class="form-group has-error required">
 					<span>设置密码:</span>
-					<input type="password" name="password" id="password" placeholder="请输入8-20位密码" value="">
+					<input type="password" name="password" id="password" placeholder="请输入8-20位密码" onblur="checkPwd(this.value)" value="">
 					<label class="error">*</label>
-					<span class="help-block">包含字母，数字的8-20位密码</span>
+					<span id="pwd" class="help-block">包含字母，数字的8-20位密码</span>
 				</div>
 				<div class="form-group has-error required">
 					<span>确认密码:</span>
-					<input type="password" name="repassword" id="repassword" placeholder="请确认密码" value="">
+					<input type="password" name="repassword" id="repassword" placeholder="请确认密码" value="" disabled="" onblur="checkRepwd(this.value)">
 					<label class="error">*</label>
-					<span class="help-block">请确认密码</span>
+					<span id="repwd" class="help-block">请确认密码</span>
 				</div>
 				<div class="form-group code has-error required">
 					<span>短信验证:</span>
 					<input type="password" name="repassword" id="repassword" placeholder="请输入验证码" value="">
 					<input id="btn" type="button" name="btn" value="免费获取验证码">
 					<label class="error">*</label>
-					<span class="help-block">请输入验证码</span>
+					<span id="recode" class="help-block">请输入验证码</span>
 				</div>
 				<div class="index">
 					<input type="checkbox" name="ok" id="ok" value="y" checked="checked">我已阅读
 					<a class="but1">《旅交会协议》</a>
-					<div class="box1 tk1" style="z-index: 100; top: -121px;">
+					<div class="box1 tk1">
                         <div>
                            	<h1>
                                 <span>《旅交会协议》</span>
-                                <img src="/static/image/x.png" width="18">
+                                <i>&times;</i>
                             </h1>
                             <h3>欢迎阅读“OPCTA旅游网”服务条款协议(下称“本协议”)。本协议阐述之条款和条件适用于您使用“OPCTA旅游网”网站所提供的服务(下称“服务”)。</h3>
                             <h2>1. 接受条款。</h2>
@@ -196,10 +196,78 @@
                     </div>
 				</div>
 				<div class="btn_nav">
-					<input type="submit" class="submit-zc" name="" value="立即注册">
+					<input type="submit" class="submit-zc" name="sub" value="立即注册">
 				</div>
 			</form>
 		</div>
 	</div>
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/prompt.js"></script>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"> </script>
+	<script type="text/javascript">
+    //弹出协议
+    $(function(){
+        var height1=$(window).height();
+        var height2=$(".box1").height();
+        // $(".box1").css("top",(height1-height2)/2-20);
+
+
+        $(".but1").click(function(){
+            $(".tk1").show();
+        })
+
+        $(".tk1 h1 i").click(function(){
+            $(this).parents(".tk1").hide();
+        })
+    })
+	</script>
+	<script type="text/javascript">
+	function checkPhone(va){
+    	if(va==""){
+			document.getElementById("phone").innerHTML="手机号不能为空";
+			// document.myform.sub.disabled=true;
+		}
+			var myphone=/^1[3578][0-9]{9}$/;
+		if(!myphone.test(va)){
+			document.getElementById("phone").innerHTML="格式不正确";
+			// document.myform.sub.disabled=true;
+		}else{
+			document.getElementById("phone").innerHTML="输入正确";
+			// document.myform.sub.disabled=false;
+		}
+    }
+    function checkPwd(va){
+    	if(va==""){
+    		document.getElementById('pwd').innerHTML="密码不能为空";
+    		// document.myform.sub.disabled=true;
+    		document.getElementById("repassword").disabled=true;
+    	}
+    	var mypwd=/^(?=.*?\d)(?=.*?[A-Z])(?=.*?[a-z])[A-Za-z\d]{8,20}$/;
+    	if(!mypwd.test(va)){
+			document.getElementById("pwd").innerHTML="请输入一个大写字母，小写字母，数字8-20个字符";
+			// document.myform.sub.disabled=true;
+			document.getElementById("repassword").disabled=true;
+		}else{
+			document.getElementById("pwd").innerHTML="输入正确";
+			// document.myform.sub.disabled=false;
+			document.getElementById("repassword").disabled=false;
+
+		}
+    }
+    function checkRepwd(va){
+				var Repwd=document.getElementById("password").value;
+				if(va==""){
+					document.getElementById("repwd").innerHTML="确认密码不能为空";
+					// document.myform.sub.disabled=true;
+				}
+				if(va!=Repwd){
+					document.getElementById("repwd").innerHTML="两个密码不一致，请重新输入";
+					// docuemnt.myform.sub.disabled=true;
+				}else{
+					document.getElementById("repwd").innerHTML="输入正确";
+					// document.form1.sub.disabled=false;
+				}
+			}
+	</script>
 </body>
 </html>
