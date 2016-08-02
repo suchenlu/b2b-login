@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
+</head>
+<body>
+	<div class="bg">
+		<div class="register-title">
+			<h3>快速注册</h3>
+			<span>欢迎您注册天天旅交会会员，如果您已拥有账户，则可在此</span>
+			<a href="/login">登录</a>
+		</div>
+		<div class="register-container">
+			<form class="myform" id="myform" action="register" method="post">
+				<div class="form-group has-error required">
+					<span>手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机:</span>
+					<input type="text" name="mobile" id="mobile" placeolder="请输入手机号" value="">
+					<label class="error">*</label>
+					<span class="help-block">请输入正确的手机号码</span>
+				</div>
+				<div class="form-group has-error required">
+					<span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱:</span>
+					<input type="text" name="email" id="email" placeolder="请输入邮箱" value="">
+					<label class="error">*</label>
+					<span class="help-block">请输入有效的邮箱地址</span>
+				</div>
+				<div class="form-group has-error required">
+					<span>设置密码:</span>
+					<input type="password" name="password" id="password" placeolder="请输入8-20位密码" value="">
+					<label class="error">*</label>
+					<span class="help-block">包含字母，数字的8-20位密码</span>
+				</div>
+				<div class="form-group has-error required">
+					<span>确认密码:</span>
+					<input type="password" name="repassword" id="repassword" placeolder="请确认密码" value="">
+					<label class="error">*</label>
+					<span class="help-block">请确认密码</span>
+				</div>
+				<div class="form-group has-error required">
+					<span>短信验证:</span>
+					<input type="password" name="repassword" id="repassword" placeolder="请输入验证码" value="">
+					<input id="btn" type="button" name="btn" value="免费获取验证码">
+					<label class="error">*</label>
+					<span class="help-block">请输入验证码</span>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

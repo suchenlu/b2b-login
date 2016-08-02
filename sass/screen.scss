@@ -1,0 +1,83 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+// @import "compass/reset";
+@import "normalize";
+@import "compass";
+@import "compass/reset";
+$browser-minimum-versions:("ie":"7");
+html{
+	@include box-sizing(border-box);
+}
+h3{
+	@include adjust-font-size-to(20px);
+}
+$inner-size:960px;
+$color:#fff;
+$error-color:#f00;
+$input:335px;
+$help-block:#f60;
+$span-width:126px;
+$line:30px;
+$btn-width:115px;
+$btn-bg:#0ba5e5;
+body{
+	background:url(../images/dl_dgj.jpg) no-repeat center;
+}
+.bg{
+	width: $inner-size;
+	margin:30px auto 0 auto;
+}
+.register-title{
+	height:50px;
+	border-bottom:1px solid #5d5d5d;
+	line-height:50px;
+	color:$color;
+	h3{
+		@include inline-block;
+		margin-left:162px;
+		color:$color;
+	}
+}
+form{
+	margin:30px 0 0 200px;
+	.form-group{
+		line-height:$line;
+		margin-bottom:15px;
+		&:last-child{
+			position:relative;
+		}
+	}
+	label{
+		color:$error-color;
+	}
+	span{
+		@include inline-block;
+		color:$color;
+		width:$span-width;
+		letter-spacing: 2px;
+	}
+	input{
+		width:$input;
+		height:36px;
+		line-height:36px;
+	}
+	input[type="button"]{
+		width:$btn-width;
+		@include adjust-font-size-to(14px);
+		@include box-shadow;
+		position:absolute;
+		left:355px;
+		top:3px;
+
+	}
+	.help-block{
+		color:$help-block;
+		display:block;
+		width:auto;
+		line-height:$line;
+		margin-left:$span-width;
+	}
+}
