@@ -46,7 +46,7 @@ form{
 	.form-group{
 		line-height:$line;
 		margin-bottom:15px;
-		.code{
+		&.code{
 			position:relative;
 		}
 	}

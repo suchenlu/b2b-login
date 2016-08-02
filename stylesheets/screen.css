@@ -329,7 +329,7 @@ form .form-group {
   line-height: 30px;
   margin-bottom: 15px;
 }
-form .form-group .code {
+form .form-group.code {
   position: relative;
 }
 form label {
