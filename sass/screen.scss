@@ -14,6 +14,9 @@ html{
 h3{
 	@include adjust-font-size-to(20px);
 }
+a{
+	@include hover-link;
+}
 $inner-size:960px;
 $color:#fff;
 $error-color:#f00;
@@ -23,6 +26,8 @@ $span-width:126px;
 $line:30px;
 $btn-width:115px;
 $btn-bg:#0ba5e5;
+$login-color:#fabe00;
+$title-h:50px;
 body{
 	background:url(../images/dl_dgj.jpg) no-repeat center;
 }
@@ -31,14 +36,25 @@ body{
 	margin:30px auto 0 auto;
 }
 .register-title{
-	height:50px;
+	height:$title-h;
 	border-bottom:1px solid #5d5d5d;
 	line-height:50px;
 	color:$color;
 	h3{
 		@include inline-block;
+		height:$title-h;
+		line-height:$title-h;
 		margin-left:162px;
 		color:$color;
+	}
+	span{
+		@extend h3;
+		@include adjust-font-size-to(16px);
+		line-height: $title-h;
+		margin-left:60px;
+	}
+	a{
+		color:$login-color;
 	}
 }
 form{
@@ -49,35 +65,66 @@ form{
 		&.code{
 			position:relative;
 		}
-	}
-	label{
-		color:$error-color;
-	}
-	span{
-		@include inline-block;
-		color:$color;
-		width:$span-width;
-		letter-spacing: 2px;
-	}
-	input{
-		width:$input;
-		height:36px;
-		line-height:36px;
-	}
-	input[type="button"]{
-		width:$btn-width;
-		@include adjust-font-size-to(14px);
-		@include box-shadow;
-		position:absolute;
-		left:355px;
-		top:3px;
+		label{
+			color:$error-color;
+		}
+		span{
+			@include inline-block;
+			color:$color;
+			width:$span-width;
+			letter-spacing: 2px;
+		}
+		input{
+			width:$input;
+			height:36px;
+			line-height:36px;
+		}
+		input[type="button"]{
+			width:$btn-width;
+			@include adjust-font-size-to(14px);
+			@include box-shadow;
+			position:absolute;
+			left:355px;
+			top:3px;
 
-	}
-	.help-block{
+		}
+		.help-block{
 		color:$help-block;
 		display:block;
 		width:auto;
 		line-height:$line;
 		margin-left:$span-width;
+		}
+	}
+	
+	
+	.tk1{
+		display:none;
+	}
+	.index{
+		color:$color;
+		input[type="checkbox"]{
+			width:auto;
+			color:$color;
+			margin-right:10px;
+		}
+		.but1{
+			color:#23527c;
+		}
+	}
+	.btn_nav{
+		input[type="submit"]{
+			@include border-radius;
+			font-size:20px;
+			background:$btn-bg;
+			color:$color;
+			width:150px;
+			height:47px;
+			line-height: 47px;
+			margin:30px 180px;
+			border:none;
+			letter-spacing: 5px;
+		}
+
 	}
 }

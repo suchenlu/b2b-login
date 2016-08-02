@@ -231,7 +231,7 @@ th {
 }
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, h2, h3, .register-title span, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -292,9 +292,16 @@ html {
   box-sizing: border-box;
 }
 
-h3 {
+h3, .register-title span {
   font-size: 1.25em;
   line-height: 1.2em;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover, a:focus {
+  text-decoration: underline;
 }
 
 body {
@@ -312,14 +319,25 @@ body {
   line-height: 50px;
   color: #fff;
 }
-.register-title h3 {
+.register-title h3, .register-title span {
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
   *zoom: 1;
   *display: inline;
+  height: 50px;
+  line-height: 50px;
   margin-left: 162px;
   color: #fff;
+}
+.register-title span {
+  font-size: 1em;
+  line-height: 1.5em;
+  line-height: 50px;
+  margin-left: 60px;
+}
+.register-title a {
+  color: #fabe00;
 }
 
 form {
@@ -332,10 +350,10 @@ form .form-group {
 form .form-group.code {
   position: relative;
 }
-form label {
+form .form-group label {
   color: #f00;
 }
-form span {
+form .form-group span {
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -345,12 +363,12 @@ form span {
   width: 126px;
   letter-spacing: 2px;
 }
-form input {
+form .form-group input {
   width: 335px;
   height: 36px;
   line-height: 36px;
 }
-form input[type="button"] {
+form .form-group input[type="button"] {
   width: 115px;
   font-size: 0.875em;
   line-height: 1.71429em;
@@ -361,10 +379,38 @@ form input[type="button"] {
   left: 355px;
   top: 3px;
 }
-form .help-block {
+form .form-group .help-block {
   color: #f60;
   display: block;
   width: auto;
   line-height: 30px;
   margin-left: 126px;
+}
+form .tk1 {
+  display: none;
+}
+form .index {
+  color: #fff;
+}
+form .index input[type="checkbox"] {
+  width: auto;
+  color: #fff;
+  margin-right: 10px;
+}
+form .index .but1 {
+  color: #23527c;
+}
+form .btn_nav input[type="submit"] {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  background: #0ba5e5;
+  color: #fff;
+  width: 150px;
+  height: 47px;
+  line-height: 47px;
+  margin: 30px 180px;
+  border: none;
+  letter-spacing: 5px;
 }
