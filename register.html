@@ -35,7 +35,7 @@
 				<div class="form-group code has-error required">
 					<span>短信验证:</span>
 					<input type="password" name="repassword" id="repassword" placeholder="请输入验证码" value="">
-					<input id="btn" type="button" name="btn" value="免费获取验证码">
+					<input id="btn" type="button" name="btn" value="免费获取验证码" onclick="shortMessagraxc()">
 					<label class="error">*</label>
 					<span id="recode" class="help-block">请输入验证码</span>
 				</div>
@@ -196,7 +196,7 @@
                     </div>
 				</div>
 				<div class="btn_nav">
-					<input type="submit" class="submit-zc" name="sub" value="立即注册">
+					<input type="submit" class="submit-zc" name="sub" value="立即注册" id="sub">
 				</div>
 			</form>
 		</div>
@@ -255,19 +255,70 @@
 		}
     }
     function checkRepwd(va){
-				var Repwd=document.getElementById("password").value;
-				if(va==""){
-					document.getElementById("repwd").innerHTML="确认密码不能为空";
-					// document.myform.sub.disabled=true;
-				}
-				if(va!=Repwd){
-					document.getElementById("repwd").innerHTML="两个密码不一致，请重新输入";
-					// docuemnt.myform.sub.disabled=true;
-				}else{
-					document.getElementById("repwd").innerHTML="输入正确";
-					// document.form1.sub.disabled=false;
-				}
-			}
+		var Repwd=document.getElementById("password").value;
+		if(va==""){
+			document.getElementById("repwd").innerHTML="确认密码不能为空";
+			// document.myform.sub.disabled=true;
+		}
+		if(va!=Repwd){
+			document.getElementById("repwd").innerHTML="两个密码不一致，请重新输入";
+			// document.myform.sub.disabled=true;
+		}else{
+			document.getElementById("repwd").innerHTML="输入正确";
+			// document.myform.sub.disabled=false;
+		}
+	}
+	// var countdown=60; 
+	// function settime(obj) { 
+	//     if (countdown == 0) { 
+	//         obj.removeAttribute("disabled");    
+	//         obj.value="免费获取验证码"; 
+	//         countdown = 60; 
+	//         return;
+	//     } else { 
+	//         obj.setAttribute("disabled", true); 
+	//         obj.value="重新发送(" + countdown + ")"; 
+	//         countdown--; 
+	//     } 
+	// setTimeout(function() { 
+	//     settime(obj) }
+	//     ,1000) 
+	// }
+			/*yanzhengma*/
+			
+ 	function shortMessagraxc() {
+		$('#btn').click(function() {
+			var count = 60;
+			var countdown = setInterval(CountDown, 1000);
+
+			function CountDown() {
+				$("#btn").attr("disabled", true);
+				$("#btn").val("" + count + "s");
+				if (count == 0) {
+					$("#btn").val("重新获取").removeAttr("disabled");
+							clearInterval(countdown);
+					}
+						count--;
+					}
+				})
+			};
+        // var countdown=60;
+        // time=document.getElementById('btn')
+        // function settime() {
+        //     if (countdown == 0) {
+        //         time.removeAttribute("disabled");
+        //         time.value="免费获取验证码";
+        //         countdown = 60;
+        //         return;
+        //     } else {
+        //         time.setAttribute("disabled", true);
+        //         time.value="重新发送(" + countdown + ")";
+        //         countdown--;
+        //     }
+        // setTimeout(function() {
+        //     settime(time) }
+        //     ,1000)
+        // }
 	</script>
 </body>
 </html>
